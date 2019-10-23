@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
 export default function LinksScreen() {
@@ -10,6 +10,9 @@ export default function LinksScreen() {
        * we just wanted to provide you with some helpful links.
        */}
       <ExpoLinksView />
+      <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+      <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+      <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
     </ScrollView>
   );
 }
