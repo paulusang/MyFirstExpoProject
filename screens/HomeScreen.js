@@ -1,5 +1,5 @@
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Platform,
@@ -12,6 +12,18 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
+class Blink extends Component {
+  componentDidMount(){
+    setInterval(()=>{this.setState(previousState => ({isShowingText: !previousState.isShowingText}))},1000);
+  }
+  state = {isShowingText: true};
+  render() {
+    if (!this.state.isShowingText){
+      return null;
+    }
+    return (<Text>{this.props.text}</Text>);
+  }
+}
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -33,7 +45,7 @@ export default function HomeScreen() {
           <DevelopmentModeNotice />
 
           <Text style={styles.getStartedText}>Paulus says "Get started by opening"</Text>
-
+          <Blink text='PAULUS implemented BLINK here'/>
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
             <MonoText>screens/HomeScreen.js</MonoText>
@@ -55,7 +67,7 @@ export default function HomeScreen() {
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
+          This is a tab bar. You can edit it in ideally but NOT NOW:
         </Text>
 
         <View
